@@ -13,26 +13,25 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    double height = 25;
+    var sentenceheadline = 'Find Your Minimalist Furnitures You Needed!';
+    double sizetext = 40;
     return Scaffold(
       //appBar: AppBar(), ekran bütünlüğü olsun diye eklemedik. geri dönüş için diğer sayfalara ekleriz
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
-              height: height * 2,
-            ),
+            SizedBox(height: boxHeight(context) * 2),
             SymbolExplanation(),
             SizedBox(
-              height: height,
+              height: boxHeight(context),
             ),
-            const HeadlineText(
-              sentence: 'Find Your Minimalist Furnitures You Needed!',
-              size: 40,
+            HeadlineText(
+              sentence: sentenceheadline,
+              size: sizetext,
               cmt: true,
             ),
             SizedBox(
-              height: height,
+              height: boxHeight(context),
             ),
             const StackProduct(),
           ],
@@ -40,8 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+
+  double boxHeight(BuildContext context) =>
+      MediaQuery.of(context).size.height / 20;
 }
-
-
-//sizedboxlar nasıl düzenlenebilir?
-//ekran yana dönünce sorun çıkıyor

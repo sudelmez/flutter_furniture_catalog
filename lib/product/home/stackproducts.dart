@@ -10,11 +10,16 @@ class StackProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var namepicture = 'furnitures';
+    var sentencecomment = 'you can find\n anything\n you like!';
     return Stack(children: [
-      const SizedBox(
-          height: 350,
-          //decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)), image için shape ekleyemedim
-          child: ImageAssett(name: 'furnitures')),
+      SizedBox(
+        height: 400,
+        child: ClipRRect(
+          child: ImageAssett(name: namepicture),
+          borderRadius: BorderRadius.circular(20),
+        ),
+      ),
       Positioned(
         //burada eklediğimiz stack tamamen image içinde. bir kısmının dışarıda olmasını isterdim
         height: 150,
@@ -22,20 +27,19 @@ class StackProduct extends StatelessWidget {
         left: 0,
         bottom: 250,
         child: Container(
-          //burada text ekleyemedim. ayrıca üstüne koydum.
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: Colors.orange,
           ),
         ),
       ),
-      const SizedBox(
-          //burayı topright yapamadım. turuncu kısımı sola almak zorunda kaldım.
-          width: 70,
-          child: HeadlineText(
-              sentence: 'you can find anything you like!',
-              size: 16,
-              cmt: false)),
+      Positioned(
+        height: 150,
+        right: 160,
+        left: 0,
+        bottom: 230,
+        child: HeadlineText(sentence: sentencecomment, size: 30, cmt: false),
+      ),
       FloatingBtn()
     ]);
   }

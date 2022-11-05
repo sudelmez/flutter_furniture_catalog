@@ -14,7 +14,6 @@ class SecondPageFurniture extends StatefulWidget {
 class _SecondPageFurnitureState extends State<SecondPageFurniture> {
   @override
   Widget build(BuildContext context) {
-    var name2 = 'chair';
     var sentence2 = 'Welcome!';
     double size2 = 20;
     return Scaffold(
